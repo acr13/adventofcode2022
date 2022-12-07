@@ -36,9 +36,7 @@ const p1 = Object.values(sizes).reduce((sum, size) => size <= 100000 ? sum + siz
 console.log('Part one:', p1);
 
 const TOTAL = 70000000;
-const TARGET = 30000000;
 
-// const 
 let min = Infinity;
 for (const [key, size] of Object.entries(sizes)) {
   if ((TOTAL - sizes['/'] + size) >= 30000000) {
