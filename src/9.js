@@ -1,7 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/9.txt', 'utf-8')
-  .split(/\r?\n/)
+const input = readFile('9.txt')
   .map(line => line.split(' '))
   .map(instr => [instr[0], Number(instr[1])]);
 
@@ -62,9 +61,7 @@ const p1 = (input) => {
         tail = moveKnot(head, tail);
       }
 
-      // console.log('tail is at ', tail);
       visited.add(`${tail[0]},${tail[1]}`);
-      // console.log(visited);
     }
   }
 

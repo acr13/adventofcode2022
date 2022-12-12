@@ -1,7 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/3.txt', 'utf-8')
-  .split(/\r?\n/);
+const input = readFile('3.txt');
 
 const LETTERS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 

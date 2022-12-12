@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js'
 
-const input = readFileSync('./inputs/11.txt', 'utf-8').split(/\r?\n/);
+const input = readFile('11.txt');
 
 const parse = () => {
   const monkeys = [];
@@ -38,12 +38,8 @@ const parse = () => {
   return monkeys;
 };
 
-
-
 const run = (monkeys, rounds, divider) => {
   const inspected = monkeys.map(_ => 0);
-
-  monkeys = monkeys.map(monkey => ({ ...monkey }));
 
   for (let i = 0; i < rounds; i++) {
     for (let j = 0; j < monkeys.length; j++) {
@@ -91,8 +87,7 @@ const run = (monkeys, rounds, divider) => {
 };
 
 const monkeys = parse(input);
-const orig = JSON.parse(JSON.stringify(monkeys));
 const divider = monkeys.reduce((prod, monkey) => prod * monkey.test, 1);
 
 console.log('Part one:', run(monkeys, 20));
-console.log('Part two:', run(orig, 10000, divider));
+console.log('Part two:', run(parse(input), 10000, divider));

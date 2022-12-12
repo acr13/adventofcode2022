@@ -1,8 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFileToIntegers } from './helpers/read.js';
 
-const calories = readFileSync('./inputs/1.txt', 'utf-8')
-  .split(/\r?\n/)
-  .map(Number);
+const calories = readFileToIntegers('1.txt');
 
 const sums = [];
 let sum = 0;

@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/10.txt', 'utf-8').split(/\r?\n/);
+const input = readFile('10.txt');
 
 let x = 1;
 let cycles = 0;
@@ -16,7 +16,7 @@ const drawPixel = (cycles, x) => {
   if ((c - 2 === x) || (c - 1) === x || c === x) {
     s += '#';
   } else {
-    s += '.';
+    s += ' ';
   }
 };
 

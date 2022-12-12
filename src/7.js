@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js'
 
-const input = readFileSync('./inputs/7.txt', 'utf-8').split(/\r?\n/);
+const input = readFile('7.txt');
 
 const path = [];
 const sizes = {};
@@ -38,10 +38,9 @@ console.log('Part one:', p1);
 const TOTAL = 70000000;
 
 let min = Infinity;
-for (const [key, size] of Object.entries(sizes)) {
+for (const size of Object.values(sizes)) {
   if ((TOTAL - sizes['/'] + size) >= 30000000) {
     if (size < min) min = size;
   }
 }
-
 console.log('Part two:', min);

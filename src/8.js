@@ -1,8 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFileToGridIntegers } from './helpers/read.js'
 
-const grid = readFileSync('./inputs/8.txt', 'utf-8')
-  .split(/\r?\n/)
-  .map(line => line.split('').map(Number));
+const grid = readFileToGridIntegers('8.txt');
 
 const DELTAS = [ [-1, 0], [0, 1], [1, 0], [0, -1] ];
 

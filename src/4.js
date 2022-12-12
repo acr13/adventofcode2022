@@ -1,10 +1,9 @@
 import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/4.txt', 'utf-8').split(/\r?\n/);
+const input = readFile('4.txt');
 let p1 = 0;
 let p2 = 0;
-
-console.log(input);
 
 for (let i = 0; i < input.length; i++) {
   const [left, right] = input[i].split(',');

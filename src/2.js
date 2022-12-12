@@ -1,7 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/2.txt', 'utf-8')
-  .split(/\r?\n/)
+const input = readFile('2.txt')
   .map(line => line.split(' '));
 
 const SHAPE_SCORE = {
@@ -65,9 +64,6 @@ const p2 = (input) => {
 
   return total;
 };
-
-
-
 
 console.log('Part one:', p1(input));
 console.log('Part two:', p2(input));

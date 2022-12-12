@@ -1,6 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const [ input ] = readFileSync('./inputs/6.txt', 'utf-8').split(/\r?\n/);
+const [ input ] = readFile('6.txt');
 
 const PART_ONE = 4;
 const PART_TWO = 14;

@@ -1,8 +1,6 @@
-import { readFileSync } from 'node:fs'
+import { readFile } from './helpers/read.js';
 
-const input = readFileSync('./inputs/5.txt', 'utf-8').split(/\r?\n/);
-
-let ready = false;
+const input = readFile('5.txt');
 
 // const stacks = [['N', 'Z'], ['D', 'C', 'M'], ['P']];
 const stacks = [
@@ -17,26 +15,31 @@ const stacks = [
   ['P', 'V', 'W', 'B', 'J'],
 ];
 
+const p1 = JSON.parse(JSON.stringify(stacks));
+const p2 = JSON.parse(JSON.stringify(stacks));
+let ready = false;
+
 for (let i = 0; i < input.length; i++) {
   const line = input[i];
   if (ready) {
     const [_, amt, __, from, ___, to] = line.split(' ').map(Number);
 
     // p1
-    // for (let j = 0; j < amt; j++) {
-    //   const crate = stacks[from - 1].shift();
-    //   stacks[to - 1].unshift(crate);
-    // }
+    for (let j = 0; j < amt; j++) {
+      const crate = p1[from - 1].shift();
+      p1[to - 1].unshift(crate);
+    }
 
     // p2
     const crates = [];
     for (let j = 0; j < amt; j++) {
-      crates.push(stacks[from - 1].shift());
+      crates.push(p2[from - 1].shift());
     }
-    stacks[to - 1].unshift(...crates);
+    p2[to - 1].unshift(...crates);
   }
 
   if (line === '') ready = true;
 }
 
-console.log(stacks.map(stack => stack[0]).join('') );
+console.log('Part one:', p1.map(stack => stack[0]).join(''));
+console.log('Part two:', p2.map(stack => stack[0]).join(''));
