@@ -8,5 +8,9 @@
   },
   "author": "",
   "type": "module",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dequeue": "^1.0.5",
+    "double-ended-queue": "^2.1.0-0"
+  }
 }
