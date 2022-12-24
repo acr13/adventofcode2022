@@ -74,10 +74,10 @@ const solve = (grid) => {
       backToStart = true;
     }
 
-    if (SEEN.has(`${r},${c},${t}`)) {
+    if (SEEN.has(`${r},${c},${t},${reachedEnd},${backToStart}`)) {
       continue;
     }
-    SEEN.add(`${r},${c},${t}`);
+    SEEN.add(`${r},${c},${t},${reachedEnd},${backToStart}`);
     const BAD = BAD_CELLS[t+1]
 
     if (!BAD.has(`${r},${c}`)) {
