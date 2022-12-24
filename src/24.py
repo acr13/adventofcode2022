@@ -34,7 +34,6 @@ for t in range((R-2)*(C-2)+1):
         BAD.add((d, cc))
       elif G[rr][cc]=='<':
         d = 1+((cc-1-t)%(C-2))
-        # print(t, d)
         BAD.add((rr, d))
       elif G[rr][cc]=='^':
         BAD.add((1+((rr-1-t)%(R-2)), cc))
